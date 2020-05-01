@@ -34,8 +34,10 @@ spec:
         - "1"
       containers:
       - name: podinfod
-        image: bwm/podinfo:3.2.3
+        image: epimorphics/bwm-podinfo:3.2.4
         imagePullPolicy: IfNotPresent
+        imagePullSecrets: 
+        -name: epi-expt-ecr-registry
         ports:
         - name: http
           containerPort: 9898
