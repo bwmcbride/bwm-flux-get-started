@@ -25,7 +25,7 @@ spec:
         prometheus.io/port: "9797"
       labels:
         app: podinfo
-    spec:    
+    spec:
       initContainers:
       - name: init
         image: alpine:3.10
@@ -47,15 +47,15 @@ spec:
           containerPort: 9999
           protocol: TCP
         command:
-          - ./podinfo
-          - --port=9898
-          - --port-metrics=9797
-          - --grpc-port=9999
-          - --grpc-service-name=podinfo
-          - --level=info
-          - --random-delay=false
-          - --random-error=false
-          - --ui-message='Welcome to Flux'
+        - ./podinfo
+        - --port=9898
+        - --port-metrics=9797
+        - --grpc-port=9999
+        - --grpc-service-name=podinfo
+        - --level=info
+        - --random-delay=false
+        - --random-error=false
+        - --ui-message='Welcome to Flux'
         env:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
@@ -74,5 +74,5 @@ spec:
           requests:
             cpu: 10m
             memory: 64Mi
-      imagePullSecrets: 
-      - name: epi-expt-ecr-registry  
+      imagePullSecrets:
+      - name: epi-expt-ecr-registry
