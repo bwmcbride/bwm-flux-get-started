@@ -25,9 +25,7 @@ spec:
         prometheus.io/port: "9797"
       labels:
         app: podinfo
-    spec:
-      imagePullSecrets: 
-      -name: epi-expt-ecr-registry      
+    spec:    
       initContainers:
       - name: init
         image: alpine:3.10
