@@ -26,6 +26,8 @@ spec:
       labels:
         app: podinfo
     spec:
+      imagePullSecrets: 
+      -name: epi-expt-ecr-registry      
       initContainers:
       - name: init
         image: alpine:3.10
@@ -36,8 +38,6 @@ spec:
       - name: podinfod
         image: 293385631482.dkr.ecr.eu-west-1.amazonaws.com/epimorphics/bwm-podinfo:3.2.4
         imagePullPolicy: IfNotPresent
-        imagePullSecrets: 
-        -name: epi-expt-ecr-registry
         ports:
         - name: http
           containerPort: 9898
