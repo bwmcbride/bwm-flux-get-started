@@ -75,4 +75,4 @@ spec:
             cpu: 10m
             memory: 64Mi
       imagePullSecrets:
-      - name: epi-expt-ecr-registry-XXX
+      - name: epi-expt-ecr-registry
