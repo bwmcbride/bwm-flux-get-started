@@ -34,7 +34,7 @@ spec:
         - "1"
       containers:
       - name: podinfod
-        image: 293385631482.dkr.ecr.eu-west-1.amazonaws.com/epimorphics/pipeline/dev/bwm-podinfo:3.2.12
+        image: 293385631482.dkr.ecr.eu-west-1.amazonaws.com/epimorphics/pipeline/dev/bwm-podinfo:3.2.13-A
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
