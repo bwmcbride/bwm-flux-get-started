@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-app
+  namespace: demo
+  labels:
+    app: miniapp
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.miniapp: semver:>0.0.0
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: mini-app
+  template:
+    metadata:
+      annotations:
+      labels:
+        app: mini-app
+    spec:
+      containers:
+      - name: mini-app
+        image: 293385631482.dkr.ecr.eu-west-1.amazonaws.com/epimorphics/ea-eks/dev/mini-app:0.0.1-DEV_ce0766c
+        imagePullPolicy: IfNotPresent
+        ports:
+        command:
+        env:
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
+      imagePullSecrets:
+      - name: epi-expt-ecr-registry
