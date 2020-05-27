@@ -5,7 +5,7 @@ metadata:
   name: mini-app
   namespace: demo
   labels:
-    app: miniapp
+    app: mini-app
   annotations:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.miniapp: semver:>0.0.0
